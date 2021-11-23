@@ -38,10 +38,6 @@ app.get('/authenticate',passport.authenticateMiddleware(), (req, res) => {
   res.status(200).json({"statusCode" : 200 ,"message" : "hello"});
 });
 
-app.get('/login',function(req,res){
-    res.sendFile(__dirname+'/views/login.html');
-})
-
 app.post('/login', passport.authenticate('local.login'), function (req, res) {
     let returnData = {
       isSuccess: true,
@@ -52,7 +48,7 @@ app.post('/login', passport.authenticate('local.login'), function (req, res) {
 });
   
 app.post('/signup',passport.authenticate('local.signup'),function(req, res) {
-    res.json()
+    res.status(200).json();
 })
 
 app.get('/logout', function(req, res){

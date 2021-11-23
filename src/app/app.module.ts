@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 const appRoutes:Routes=[
   {path:'home',component:OverviewComponent,canActivate:[AuthGuardService]},
   {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
     {path:'lab1',component:Lab1Component,canActivate:[AuthGuardService]},
     {path:'lab2',component:Lab2Component,canActivate:[AuthGuardService]},
     {path:'lab3',component:Lab3Component,canActivate:[AuthGuardService]},

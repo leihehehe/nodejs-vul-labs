@@ -1,32 +1,53 @@
-<<<<<<< HEAD
 # NodejsLabs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+**这是一个非常基础的Node.js的web渗透靶场，主要的Lab内容都是帮助大家入门和了解Node.js的一些特性和相关漏洞的产生原理。该靶场使用Node.js+Angular，以前后端分离模式搭建。写的很烂请见谅。**
 
-## Development server
+## Screenshot
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**下面是一些演示界面：**
 
-## Code scaffolding
+**Home/Overview**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![screenshot1](./image/screenshot1.png)
 
-## Build
+ **Lab1**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![screenshot2](./image/screenshot2.png)
 
-## Running unit tests
+**Lab2**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![screenshot2](./image/screenshot3.png)
 
-## Running end-to-end tests
+## Install & use
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**根目录下安装相关依赖：**
 
-## Further help
+`npm i`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
-# nodejs-vul-labs
-这是一个基础入门级别的Node Js的web渗透靶场
->>>>>>> 3b3f20c22dbffa898c5e9411aa4dc2d3ec2c6276
+`ng build` 
+
+[下载安装mongoDB](https://docs.mongodb.com/manual/administration/install-community/)
+
+**使用：**
+
+启动mongoDB(默认为`mongodb://localhost:27017`)
+
+`node main.js`
+
+访问：http://localhost:8888
+
+## To Do
+
+**因为作者也是边学习边编写，后续将逐渐添加新题。**
+
+## Summary
+
+| Lab名称             | 漏洞知识点           |
+| ------------------- | -------------------- |
+| Lab 1：手机轰炸     | 命令执行             |
+| Lab 2：会员内容     | JavaScript原型链污染 |
+| Lab 3：此Lab维护中  | JavaScript特性绕过   |
+| Lab 4：代码之星评选 | JavaScript特性绕过   |
+
+**待续。**
+
