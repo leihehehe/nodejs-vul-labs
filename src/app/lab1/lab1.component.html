@@ -1,0 +1,32 @@
+
+  <form>
+    <div class="form-group">
+        <p style="text-align:center"><label>关卡1:手机轰炸</label></p>
+      <hr/>
+      <br />
+      <label>关卡说明：这是一个在线网页版的手机轰炸软件，请想办法找到flag1.txt文件并读取其内容</label>
+      <br />
+      
+      <button type="button" class="btn btn-danger" data-toggle="popover" title="没思路？点这里看提示"  (click)="showTip()">没思路？点这里看提示</button>
+      <div class="alert alert-info" style="margin-top: 10px;" *ngIf="tip">
+        <strong>提示：</strong> 服务器用socket通信方式运行了一个额外的小程序。
+      </div>
+      <hr/>
+      <label>手机轰炸：</label>
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" id="phoneNumber" aria-describedby="phoneNumber" placeholder="Enter a phone number">
+      <small id="emailHelp" class="form-text text-muted">This is the phone number you want to bomb.</small>
+      <br />
+      <br />
+      <button type="submit" class="btn btn-success" (click)="phoneBomb()" style="margin-right: 5px;">Start</button>
+      <br />
+      <br />
+      <div class="panel panel-primary">
+        <div class="panel-heading">Progress:</div>
+        
+        <div class="panel-body" *ngFor="let s of status">{{s}}</div>
+      </div>
+    
+    </div>
+
+  </form>

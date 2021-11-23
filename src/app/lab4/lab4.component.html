@@ -1,0 +1,39 @@
+
+  <form>
+    <div class="form-group">
+        <p style="text-align:center"><label>关卡4:代码之星评选</label></p>
+      <hr/>
+      <br />
+      <label>关卡说明：今天是公司成立三周年，我们挑选出最受欢迎的代码之星，奖励一份大奖。为了防止黑客修改前端页面显示，投票结果将以后台为准！</label>
+      <p><strong>你的好朋友Rosemary已经两年没有获得过奖了，现在排名倒数第一，她想过过获奖的瘾，麻烦你帮她想想办法...</strong></p>
+    <p style="color:deeppink">此关卡可以用很多方法通关，但设计该关卡的主要目的是为了让大家利用Node.Js语言小特性来解决哦!（一步到位）</p>
+      <br />
+      
+      <button type="button" class="btn btn-danger" data-toggle="popover" title="没思路？点这里看提示"  (click)="showTip()">没思路？点这里看提示</button>
+      <div class="alert alert-info" style="margin-top: 10px;" *ngIf="tip">
+        <strong>提示：</strong> 票数是怎么计算的呢？
+      </div>
+      <hr/>
+      <div class="container">
+        <h2>投票情况：</h2>
+        <p>每次只能投两票，重新登录后可继续投两票</p>            
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>名字</th>
+              <th>目前票数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of content | keyvalue">
+              <td>{{item.key}}</td>
+              <td>{{item.value}}</td>
+              <button class="btn btn-info" (click)="vote(item.key)" *ngIf="ticket>0">我给Ta投票</button>
+              <button class="btn btn-default disabled"  *ngIf="ticket==0">票数已用完</button>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </form>

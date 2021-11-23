@@ -1,0 +1,28 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="/assets/images/login.png" style="margin-top:10px;width:20%;height:20%;margin-bottom: 10px;" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Signup Form -->
+    <form>
+      <input type="text" id="register" class="fadeIn second" name="username" placeholder="username" [(ngModel)]="username">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" [(ngModel)]="password">
+      <input type="submit" class="fadeIn fourth" value="Submit" (click)="register()">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" routerLink="/login" >Already have an account?</a>
+    </div>
+
+  </div>
+</div>
