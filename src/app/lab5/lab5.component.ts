@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
 import { io } from 'socket.io-client';
+import { AuthService } from '../auth.service';
+
 @Component({
-  selector: 'app-lab2',
-  templateUrl: './lab2.component.html',
-  styleUrls: ['./lab2.component.css']
+  selector: 'app-lab5',
+  templateUrl: './lab5.component.html',
+  styleUrls: ['./lab5.component.css']
 })
-export class Lab2Component implements OnInit {
+export class Lab5Component implements OnInit {
+
   constructor(private authService:AuthService) { }
+
   vipCode:String=""
   status:any[]=[]
   username:String="";
@@ -19,7 +22,7 @@ export class Lab2Component implements OnInit {
     this.listenOnStatus()
   }
   unlock(){  
-    this.socket.emit('unlock',{username:this.username,vipCode:this.vipCode});
+    this.socket.emit('unlockLab5',{username:this.username,vipCode:this.vipCode});
   };
   viewSecret(){
     
@@ -32,7 +35,8 @@ export class Lab2Component implements OnInit {
 
   listenOnStatus(){
     this.socket.on('vipContent',(data:any) =>{
-        this.status.push(data);
+      if(data.Event!=null) this.status.push(data.Event)
+      else this.status.push(data);
     });
   }
 

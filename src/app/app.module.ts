@@ -14,6 +14,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { Lab3Component } from './lab3/lab3.component';
 import { Lab4Component } from './lab4/lab4.component';
 import { RegisterComponent } from './register/register.component';
+import { Lab5Component } from './lab5/lab5.component';
 const appRoutes:Routes=[
   {path:'home',component:OverviewComponent,canActivate:[AuthGuardService]},
   {path:'login',component:LoginComponent},
@@ -22,6 +23,7 @@ const appRoutes:Routes=[
     {path:'lab2',component:Lab2Component,canActivate:[AuthGuardService]},
     {path:'lab3',component:Lab3Component,canActivate:[AuthGuardService]},
     {path:'lab4',component:Lab4Component,canActivate:[AuthGuardService]},
+    {path:'lab5',component:Lab5Component,canActivate:[AuthGuardService]},
     {path:'',redirectTo:"/home",pathMatch:"full"}
 ];
 
@@ -34,7 +36,8 @@ const appRoutes:Routes=[
     LoginComponent,
     Lab3Component,
     Lab4Component,
-    RegisterComponent
+    RegisterComponent,
+    Lab5Component
   ],
   imports: [
     RouterModule.forRoot(appRoutes,{useHash:true}),

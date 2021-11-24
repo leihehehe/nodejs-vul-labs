@@ -14,7 +14,7 @@
 
 ![screenshot2](./image/screenshot2.png)
 
-**Lab2**
+**Lab3**
 
 ![screenshot2](./image/screenshot3.png)
 
@@ -50,12 +50,13 @@
 
 ## Summary
 
-| Lab名称             | 漏洞知识点           |
-| ------------------- | -------------------- |
-| Lab 1：手机轰炸     | 命令执行             |
-| Lab 2：会员内容     | JavaScript原型链污染 |
-| Lab 3：此Lab维护中  | JavaScript特性绕过   |
-| Lab 4：代码之星评选 | JavaScript特性绕过   |
+| Lab名称                | 漏洞知识点           |
+| ---------------------- | -------------------- |
+| Lab 1：手机轰炸        | 命令执行             |
+| Lab 2：会员内容        | NoSql注入攻击        |
+| Lab 3：此Lab维护中     | JavaScript特性绕过   |
+| Lab 4：代码之星评选    | JavaScript特性绕过   |
+| Lab 5 : 加强版会员内容 | Javascript原型链污染 |
 
 **待续。**
 

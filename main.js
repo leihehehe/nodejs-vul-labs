@@ -77,25 +77,28 @@ io.on('connection',function(socket){
       });  
     })
 
+
     
 /* Lab 2 */
     socket.on('unlock', function(data){
+//Code collection由三个部分组成：_id, username, code，由管理员手动添加
+      if(Object.keys(data).length === 0){
+        socket.emit("vipContent","激活码错误！");
+      }else{
+        Code.findOne(data,'vipCode',function (err,result){//数据库中的Code collection里，除非管理员手动添加username和vipCode，用户是不能被找到的。
+          if(err) socket.emit('vipContent',"发生了点错误");
+          else if(result!=null){
+            User.findOneAndUpdate({username:data.username},{vip:true},function (err,data){
+              if(err) socket.emit('vipContent',"发生了点错误");
+              
+              socket.emit('vipContent',"激活成功");
+            })
+          }else{
+            socket.emit('vipContent',"激活码错误，请联系站长购买VIP激活码");
+          }
+        })
+      }
 
-      Code.findOne(data,'vipCode',function (err,result){
-        if(err) socket.emit('vipContent',"发生了点错误");
-        else if(result!=null){
-          User.findOneAndUpdate({username:data.username},{vip:true},function (err,data){
-            if(err) socket.emit('vipContent',"发生了点错误");
-            
-            socket.emit('vipContent',"激活成功");
-          })
-        }else{
-          let Log={"Event":"查看会员内容失败，激活码错误！","Time":Date.now()};
-          //Log{}中可以可以加上任意自定义的attribute,在前端可以对应更新获取数据
-          merge(Log,data);
-          socket.emit('vipContent',Log);
-        }
-      })
     })
 
     socket.on('checkVIP', function(data){
@@ -144,7 +147,29 @@ io.on('connection',function(socket){
     io.sockets.emit('results',names);
 
 /* Lab 5 */
-
+socket.on('unlockLab5', function(data){
+  //Code collection由三个部分组成：_id, username, code，由管理员手动添加
+        if(Object.keys(data).length === 0){
+          socket.emit("vipContent","激活码错误！");
+        }else{
+          Code.findOne({username:String(data.username),vipCode:String(data.vipCode)},'vipCode',function (err,result){//数据库中的Code collection里，除非管理员手动添加username和vipCode，用户是不能被找到的。
+            if(err) socket.emit('vipContent',"发生了点错误");
+            else if(result!=null){
+              User.findOneAndUpdate({username:data.username},{vip:true},function (err,data){
+                if(err) socket.emit('vipContent',"发生了点错误");
+                
+                socket.emit('vipContent',"激活成功");
+              })
+            }else{
+              let Log={"Event":"查看会员内容失败，激活码错误，请联系站长购买VIP激活码！","Time":Date.now()};
+              //Log{}中可以可以加上任意自定义的attribute,在前端可以对应更新获取数据
+              merge(Log,data);
+              socket.emit('vipContent',Log);
+            }
+          })
+        }
+  
+      })
 
 })
 
