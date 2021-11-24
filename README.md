@@ -1,6 +1,6 @@
 # NodejsLabs
 
-**这是一个非常基础的Node.js的web渗透靶场，主要的Lab内容都是帮助大家入门和了解Node.js的一些特性和相关漏洞的产生原理。该靶场使用Node.js+Angular，以前后端分离模式搭建。写的很烂请见谅。**
+**这是一个非常基础的Node.js的web渗透靶场，该靶场使用Node.js+Angular，以前后端分离模式完成搭建。项目刚开始，代码写的很烂请见谅，主要是为了帮助大家入门和了解Node.js的一些特性和相关漏洞的产生原理。**
 
 ## Screenshot
 
@@ -18,15 +18,23 @@
 
 ![screenshot2](./image/screenshot3.png)
 
-## Install & use
+## Install & Usage
 
-**根目录下安装相关依赖：**
+**环境要求**
+
+[Node.js](https://nodejs.org/en/download/)
+
+`npm install -g @angular/cli`
+
+[mongoDB](https://docs.mongodb.com/manual/administration/install-community/)
+
+**安装**
+
+`cd nodejs-vul-labs-main`
 
 `npm i`
 
 `ng build` 
-
-[下载安装mongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 **使用：**
 
