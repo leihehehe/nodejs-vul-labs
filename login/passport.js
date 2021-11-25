@@ -7,11 +7,9 @@ var passport = require('passport'),
 /* Login validation */
 passport.use('local.login', new LocalStrategy(
   function (username, password, done) {
-    console.log(username);
     User.findOne({
       username: username
     }, function (err, user) {
-      console.log(username);
       if (err) {
         console.log("error happened")
         return done(err);

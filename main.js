@@ -103,15 +103,23 @@ io.on('connection',function(socket){
 
     socket.on('checkVIP', function(data){
 
-      if(data!=null){
-        if(JSON.parse(data).user.vip==true){
-          socket.emit('vipContent',"The flag is ufnskaknv123ff2. Congratulations!");
+      User.findOne({username:JSON.parse(data).user.username, vip:true},function (err,result){
+        if(err){
+          socket.emit('vipContent',"发生了点错误");
+          result={};
+        } 
+        if(result!=null){
+          if(result.vip==true){
+            socket.emit('vipContent',"The flag is ufnskaknv123ff2. Congratulations!");
+          }else{
+            socket.emit('vipContent',"You are not allowed to access the content")
+          }
         }else{
           socket.emit('vipContent',"You are not allowed to access the content")
         }
-      }else{
-        socket.emit('vipContent',"为了通过验证，您需要重新登录账号")
-      }
+
+      })
+
     })
 
 /* Lab 3 */
@@ -131,6 +139,7 @@ io.on('connection',function(socket){
       }
       
     })
+
 /* Lab 4 */
     socket.on('lab4',function(data){
       //发送你的票数
@@ -171,8 +180,22 @@ socket.on('unlockLab5', function(data){
   
       })
 
-})
 
+})
+/* Lab 6 */
+app.get('/lab6',function(req,res){
+  var flag = '恭喜你，回答成员，您正式受邀成为公司网安小组成员！';
+  if(req.url.match(/7B|7D|2C|\,/ig)){
+    res.send("回答错误！");
+  }else{
+    if(req.query.ck.name==='admin'&&req.query.ck.anwser==='niceGame'){
+      res.send(flag);
+    }else{
+      res.send("回答错误！");
+    }
+  }
+
+})
 
 function merge(target,source) {
   for (let key in source){
