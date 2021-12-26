@@ -1,6 +1,6 @@
 # NodejsLabs
 
-**这是一个非常基础的Node.js的web渗透靶场，该靶场使用Node.js+Angular，以前后端分离模式完成搭建，主要是为了帮助大家入门和了解Node.js的一些原生的特性和相关漏洞的产生原理，并不携带漏洞库。**
+**这是一个非常基础的Node.js的web渗透靶场，该靶场使用Node.js+Angular+Mongoose(Mongodb)，以前后端分离模式完成搭建，主要是为了帮助大家入门和了解Node.js的一些原生的特性和相关漏洞的产生原理，并不携带漏洞库。**
 
 ## Screenshot
 
