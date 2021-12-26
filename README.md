@@ -1,8 +1,6 @@
 # NodejsLabs
 
-**这是一个非常基础的Node.js的web渗透靶场，该靶场使用Node.js+Angular，以前后端分离模式完成搭建，主要是为了帮助大家入门和了解Node.js的一些特性和相关漏洞的产生原理。**
-
-个人小项目刚开始，代码写得烂请见谅
+**这是一个非常基础的Node.js的web渗透靶场，该靶场使用Node.js+Angular，以前后端分离模式完成搭建，主要是为了帮助大家入门和了解Node.js的一些原生的特性和相关漏洞的产生原理，并不携带漏洞库。**
 
 ## Screenshot
 
@@ -34,13 +32,15 @@
 
 `cd nodejs-vul-labs-main`
 
-`npm i`
+下载相应依赖: `npm i`
 
-`ng build` 
+生成前端:`ng build` 
 
 **使用：**
 
-启动mongoDB(默认为`mongodb://localhost:27017`)
+先启动mongoDB(默认为`mongodb://localhost:27017`)
+
+**第一次运行需要初始化数据库:** `node init.js`
 
 `node main.js`
 
