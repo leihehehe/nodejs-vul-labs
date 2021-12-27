@@ -198,6 +198,36 @@ app.get('/lab6',function(req,res){
 
 })
 
+app.get("/initial",function(req,res){
+  User.deleteMany({},function(err){
+    if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
+    Code.deleteMany({},function(err){
+      if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
+        let newUser = new User({
+          _id: new mongoose.Types.ObjectId(),
+          username: "admin",
+          password: "admin123123"
+        });
+        let newCodes=new Code({
+          _id: new mongoose.Types.ObjectId(),
+          username:"admin",
+          vipCode:"wqhduqwodnj13"
+        })
+        newUser.save(function(err){
+            if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
+            console.log('新用户创建完毕');
+            newCodes.save(function(err){
+              if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
+              console.log('VIP库创建完毕');
+              console.log('数据库初始化完成');
+              res.json({"msg":"初始化成功"});
+          })
+        })
+    })
+})
+  
+})
+
 function merge(target,source) {
   for (let key in source){
       if (key in source && key in target){
@@ -206,6 +236,8 @@ function merge(target,source) {
           target[key]=source[key];
       }
   }}
+
+
 
 
 

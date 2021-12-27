@@ -1,0 +1,16 @@
+<form>
+    <div class="form-group">
+        <p style="text-align:center"><label>数据库初始化</label></p>
+        <hr/>
+        <br />
+        <label>如果你是第一次运行，请点击下方按钮对数据库进行初始化</label>
+        <br />
+      <button type="button" class="btn btn-danger" (click)="initial()">点击对数据库进行初始化</button>
+      <br>
+      <br>
+      <div class="panel panel-primary">
+        <div class="panel-heading">初始化结果</div>
+        <div class="panel-body">{{result}}</div>
+      </div>
+    </div>
+  </form>

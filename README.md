@@ -40,7 +40,7 @@
 
 先启动mongoDB(默认为`mongodb://localhost:27017`)
 
-**第一次运行需要初始化数据库:** `node init.js`
+**第一次运行需要初始化数据库:** 
 
 `node main.js`
 
