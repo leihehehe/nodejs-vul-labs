@@ -88,10 +88,9 @@ io.on('connection',function(socket){
         Code.findOne(data,'vipCode',function (err,result){//数据库中的Code collection里，除非管理员手动添加username和vipCode，用户是不能被找到的。
           if(err) socket.emit('vipContent',"发生了点错误");
           else if(result!=null){
-            User.findOneAndUpdate({username:data.username},{vip:true},function (err,data){
+            User.findOneAndUpdate({username:data.username},{vip:true},function (err,fUser){
               if(err) socket.emit('vipContent',"发生了点错误");
-              
-              socket.emit('vipContent',"激活成功");
+              socket.emit('vipContent',"The flag is ufnskaknv123ff2. Congratulations!");
             })
           }else{
             socket.emit('vipContent',"激活码错误，请联系站长购买VIP激活码");
@@ -101,26 +100,7 @@ io.on('connection',function(socket){
 
     })
 
-    socket.on('checkVIP', function(data){
 
-      User.findOne({username:JSON.parse(data).user.username, vip:true},function (err,result){
-        if(err){
-          socket.emit('vipContent',"发生了点错误");
-          result={};
-        } 
-        if(result!=null){
-          if(result.vip==true){
-            socket.emit('vipContent',"The flag is ufnskaknv123ff2. Congratulations!");
-          }else{
-            socket.emit('vipContent',"You are not allowed to access the content")
-          }
-        }else{
-          socket.emit('vipContent',"You are not allowed to access the content")
-        }
-
-      })
-
-    })
 
 /* Lab 3 */
 
@@ -179,6 +159,27 @@ socket.on('unlockLab5', function(data){
         }
   
       })
+  socket.on('checkVIP', function(data){
+
+    User.findOne({username:JSON.parse(data).user.username, vip:true},function (err,result){
+      if(err){
+        socket.emit('vipContent',"发生了点错误");
+        result={};
+      } 
+      if(result!=null){
+        if(result.vip==true){
+          socket.emit('vipContent',"The flag is ufnskaknv123ff2. Congratulations!");
+        }else{
+          socket.emit('vipContent',"You are not allowed to access the content")
+        }
+      }else{
+        socket.emit('vipContent',"You are not allowed to access the content")
+      }
+
+    })
+
+  })
+      
 
 
 })
