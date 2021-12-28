@@ -18,7 +18,21 @@
 
 ![screenshot2](./image/screenshot3.png)
 
-## Install & Usage
+## Install&Usage
+
+### 方法一：Docker运行
+
+**安装**
+
+**进入项目根目录:**`cd nodejs-vul-labs-main`
+
+`docker-compose up`
+
+**运行**
+
+访问：http://localhost:8888
+
+### 方法二：本机运行
 
 **环境要求**
 
@@ -40,11 +54,15 @@
 
 先启动mongoDB(默认为`mongodb://localhost:27017`)
 
-**第一次运行需要初始化数据库:** 
-
 `node main.js`
 
 访问：http://localhost:8888
+
+## 数据库初始化
+
+第一次运行需要初始化数据库 
+
+![image-20211228113422043](https://blog-1300132498.cos.ap-nanjing.myqcloud.com/blog/image-20211228113422043.png)
 
 ## To Do
 
