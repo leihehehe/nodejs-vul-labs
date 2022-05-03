@@ -14,12 +14,12 @@ export class Lab6Component implements OnInit {
 code:String=`
 app.get('/lab6',function(req,res){
   if(req.url.match(/7B|7D|2C|\,/ig)){
-    res.send("回答错误！");
+    res.send("Incorrect answer.");
   }else{
     if(req.query.ck.name==='admin'&&req.query.ck.anwser==='niceGame'){
       res.send(flag);
     }else{
-      res.send("回答错误！");
+      res.send("Incorrect answer.");
     }
   }
 })`;

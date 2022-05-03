@@ -1,40 +1,54 @@
-# NodejsLabs
+# Node.js vulnerability labs
 
-**这是一个非常基础的Node.js的web渗透靶场，该靶场使用Node.js+Angular+Mongoose(Mongodb)，以前后端分离模式完成搭建，主要是为了帮助大家入门和了解Node.js的一些原生的特性和相关漏洞的产生原理，并不携带漏洞库。**
+**A vulnerable web application with defined vulnerabilities of Node.js.**
 
-## Screenshot
+**This application is implemented by Node.js+Angular+Mongoose(Mongodb)**
 
-**现已有6个Labs, 下面是部分演示界面：**
+## Screenshots
 
-**Home/Overview**
-
-![screenshot1](./image/screenshot1.png)
+**There are currently have 6 labs, previews are shown below**
 
  **Lab1**
 
-![screenshot2](./image/screenshot2.png)
+![screenshot1](./image/lab1.png)
+
+ **Lab2**
+
+![screenshot2](./image/lab2.png)
 
 **Lab3**
 
-![screenshot2](./image/screenshot3.png)
+![screenshot2](./image/lab3.png)
+
+**Lab4**
+
+![screenshot2](./image/lab4.png)
+
+**Lab5**
+
+![screenshot2](./image/lab5.png)
+
+**Lab6**
+
+![screenshot2](./image/lab6.png)
 
 ## Install&Usage
 
-### 方法一：Docker运行
+### Method 1：Docker
 
-**安装**
+**Installation**
 
-**进入项目根目录:**`cd nodejs-vul-labs-main`
+`cd nodejs-vul-labs-main`
 
 `docker-compose up`
 
-**运行**
+**Run**
 
-访问：http://localhost:8888
+Access the labs: http://localhost:8888
 
-### 方法二：本机运行
+### Method 2：Local Installation
 
-**环境要求**
+**Required Environment**
 
 [Node.js](https://nodejs.org/en/download/)
 
@@ -42,42 +56,35 @@
 
 [mongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
-**安装**
+**Installation**
 
 `cd nodejs-vul-labs-main`
 
-下载相应依赖: `npm i`
+Download dependencies: `npm i`
 
-生成前端:`ng build` 
+Generate UI:`ng build` 
 
-**使用：**
+**Usage：**
 
-先启动mongoDB(默认为`mongodb://localhost:27017`)
+First you need to launch mongoDB(`mongodb://localhost:27017`)
 
 `node main.js`
 
-访问：http://localhost:8888
+Access the labs: http://localhost:8888
 
-## 数据库初始化
+## Initialize the database
 
-第一次运行需要初始化数据库 
+If you are running this application for the first time, please click the button below to initialize the database.
 
-![image-20211228113422043](https://blog-1300132498.cos.ap-nanjing.myqcloud.com/blog/image-20211228113422043.png)
-
-## To Do
-
-**因为作者也是边学习边编写，后续将逐渐添加新题。**
+![screenshot2](./image/database.png)
 
 ## Summary
 
-| Lab名称               | 漏洞知识点             |
-| --------------------- | ---------------------- |
-| Lab 1：手机轰炸       | 命令执行               |
-| Lab 2：会员内容       | NoSql注入攻击          |
-| Lab 3：此Lab维护中    | JavaScript特性绕过     |
-| Lab 4：代码之星评选   | JavaScript特性绕过     |
-| Lab 5：加强版会员内容 | Javascript原型链污染   |
-| Lab 6：加入网安小组   | HPP污染+nodejs特性绕过 |
-
-**待续。**
-
+| Lab Name                                | Vulnerability                            |
+| --------------------------------------- | ---------------------------------------- |
+| Lab 1：Call Bomber                      | Command Injection                        |
+| Lab 2：Premium Content                  | NoSql injection                          |
+| Lab 3：The Website is Under Maintenance | JavaScript feature                       |
+| Lab 4：Voting System                    | JavaScript feature                       |
+| Lab 5：The Latest Premium Content       | JavaScript prototype pollution           |
+| Lab 6：Join Cybersecurity Team          | HTTP parameter pollution+Node.js feature |

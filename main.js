@@ -14,9 +14,9 @@ app.use(expressSession({
     resave: true,
     saveUninitialized: true
 }));
-// 初始化调用 passport
+// Initilize passport
 
-let names={"Richard":2995,"John":8011,"Rosemary":5,"Tim":5390};
+let names={"Richard":2995,"John":8011,"Bob":5,"Tim":5390};
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -70,7 +70,7 @@ io.on('connection',function(socket){
     socket.on('lab1', function(data){
       
       let bomber=exec('python -u ./test.py -n '+data,function(err,data){
-          if(err) socket.emit('bombStatus',"发生了点错误");
+          if(err) socket.emit('bombStatus',"Some error occurred.");
       })
       bomber.stdout.on('data', function(data) {
           socket.emit('bombStatus',data)
@@ -81,19 +81,19 @@ io.on('connection',function(socket){
     
 /* Lab 2 */
     socket.on('unlock', function(data){
-//Code collection由三个部分组成：_id, username, code，由管理员手动添加
+//Code collection consists of _id, username, code，which would be added by the administrator manually.
       if(Object.keys(data).length === 0){
-        socket.emit("vipContent","激活码错误！");
+        socket.emit("vipContent","Invalid activation code");
       }else{
-        Code.findOne(data,'vipCode',function (err,result){//数据库中的Code collection里，除非管理员手动添加username和vipCode，用户是不能被找到的。
-          if(err) socket.emit('vipContent',"发生了点错误");
+        Code.findOne(data,'vipCode',function (err,result){//In the Code collection, users can not be found unless the administrator manually added the username and vipCode.
+          if(err) socket.emit('vipContent',"Some error occured");
           else if(result!=null){
             User.findOneAndUpdate({username:data.username},{vip:true},function (err,fUser){
-              if(err) socket.emit('vipContent',"发生了点错误");
+              if(err) socket.emit('vipContent',"Some error occured");
               socket.emit('vipContent',"The flag is ufnskaknv123ff2. Congratulations!");
             })
           }else{
-            socket.emit('vipContent',"激活码错误，请联系站长购买VIP激活码");
+            socket.emit('vipContent',"Invalid activation code，please contact the host to purchase the activation code");
           }
         })
       }
@@ -106,23 +106,23 @@ io.on('connection',function(socket){
 
     socket.on('lab3', function(data){
       let announcement= {
-        "content":"此栏暂时关闭，更多功能正在开发中",
-        "backupSecret":"5oGt5Zac5L2g77yB5om+5Yiw5LqG56ys5LiJ5YWz55qEZmxhZzogcXdkZDEyZ2RoNTI2MzEyYTNzYw=="//为了方便，我把之前lab3的内容用加密了，等到时候开发好以后再搬过来。
+        "content":"The website is temporarily closed, more features are being developed",
+        "backupSecret":"5oGt5Zac5L2g77yB5om+5Yiw5LqG56ys5LiJ5YWz55qEZmxhZzogcXdkZDEyZ2RoNTI2MzEyYTNzYw=="//For convinence, I encrypted the previous content. I will change it back after the maintainance.
       }
       let backlist=['backupSecret'];
       if(backlist.includes(data)){
-        socket.emit('announcement',"检测到非法入侵，你的IP已被记录");//检测到黑名单，吓唬一下
+        socket.emit('announcement',"Illegal operation detected. Your IP has been logged");//check blacklist, scare them.
       }else if(announcement[data]!=null){
         socket.emit('announcement',announcement[data]);
       }else{
-        socket.emit('announcement',"发生了点错误");
+        socket.emit('announcement',"Some error occurred.");
       }
       
     })
 
 /* Lab 4 */
     socket.on('lab4',function(data){
-      //发送你的票数
+      //Send the number of tickets
       let target = data.username;
       let p=data.ticket;
       if(p<2&&p>0){
@@ -137,21 +137,21 @@ io.on('connection',function(socket){
 
 /* Lab 5 */
 socket.on('unlockLab5', function(data){
-  //Code collection由三个部分组成：_id, username, code，由管理员手动添加
+//Code collection consists of _id, username, code，which would be added by the administrator manually.
         if(Object.keys(data).length === 0){
-          socket.emit("vipContent","激活码错误！");
+          socket.emit("vipContent","Invalid activation code.");
         }else{
-          Code.findOne({username:String(data.username),vipCode:String(data.vipCode)},'vipCode',function (err,result){//数据库中的Code collection里，除非管理员手动添加username和vipCode，用户是不能被找到的。
-            if(err) socket.emit('vipContent',"发生了点错误");
+          Code.findOne({username:String(data.username),vipCode:String(data.vipCode)},'vipCode',function (err,result){//In the Code collection, users can not be found unless the administrator manually added the username and vipCode.
+            if(err) socket.emit('vipContent',"Some error occured.");
             else if(result!=null){
               User.findOneAndUpdate({username:data.username},{vip:true},function (err,data){
-                if(err) socket.emit('vipContent',"发生了点错误");
+                if(err) socket.emit('vipContent',"Some error occured.");
                 
-                socket.emit('vipContent',"激活成功");
+                socket.emit('vipContent',"Success");
               })
             }else{
-              let Log={"Event":"查看会员内容失败，激活码错误，请联系站长购买VIP激活码！","Time":Date.now()};
-              //Log{}中可以可以加上任意自定义的attribute,在前端可以对应更新获取数据
+              let Log={"Event":"You cannot access the premium content，please contact the host to purchase the activation code！","Time":Date.now()};
+              //You can add any attributes into the Log{} , and the front end will fetch and present it.
               merge(Log,data);
               socket.emit('vipContent',Log);
             }
@@ -163,7 +163,7 @@ socket.on('unlockLab5', function(data){
 
     User.findOne({username:JSON.parse(data).user.username, vip:true},function (err,result){
       if(err){
-        socket.emit('vipContent',"发生了点错误");
+        socket.emit('vipContent',"Some error occurred.");
         result={};
       } 
       if(result!=null){
@@ -185,14 +185,14 @@ socket.on('unlockLab5', function(data){
 })
 /* Lab 6 */
 app.get('/lab6',function(req,res){
-  var flag = '恭喜你，回答成员，您正式受邀成为公司网安小组成员！';
+  var flag = 'Congratulations, you are invted to join our Cybersecurity Team.';
   if(req.url.match(/7B|7D|2C|\,/ig)){
-    res.send("回答错误！");
+    res.send("Incorrect answer.");
   }else{
     if(req.query.ck.name==='admin'&&req.query.ck.anwser==='niceGame'){
       res.send(flag);
     }else{
-      res.send("回答错误！");
+      res.send("Incorrect answer.");
     }
   }
 
@@ -200,9 +200,9 @@ app.get('/lab6',function(req,res){
 
 app.get("/initial",function(req,res){
   User.deleteMany({},function(err){
-    if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
+    if(err) res.json({"msg":"Database initialization failed. Please check whether the database is connected"});
     Code.deleteMany({},function(err){
-      if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
+      if(err) res.json({"msg":"Database initialization failed. Please check whether the database is connected"});
         let newUser = new User({
           _id: new mongoose.Types.ObjectId(),
           username: "admin",
@@ -214,13 +214,13 @@ app.get("/initial",function(req,res){
           vipCode:"wqhduqwodnj13"
         })
         newUser.save(function(err){
-            if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
-            console.log('新用户创建完毕');
+            if(err) res.json({"msg":"Database initialization failed. Please check whether the database is connected"});
+            console.log('new user created');
             newCodes.save(function(err){
-              if(err) res.json({"msg":"数据库初始化错误，请检查数据库是否连接"});
-              console.log('VIP库创建完毕');
-              console.log('数据库初始化完成');
-              res.json({"msg":"初始化成功"});
+              if(err) res.json({"msg":"Database initialization failed. Please check whether the database is connected"});
+              console.log('VIP table created');
+              console.log('Database initialization completed');
+              res.json({"msg":"Database initialization completed!"});
           })
         })
     })

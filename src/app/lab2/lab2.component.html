@@ -1,27 +1,27 @@
 
   <form>
     <div class="form-group">
-        <p style="text-align:center"><label>关卡2:会员内容</label></p>
+        <p style="text-align:center"><label>Lab 2: Premium content</label></p>
       <hr/>
       <br />
-      <label>关卡说明：这是VIP专享内容，非VIP不能观看，你需要绕过会员验证。</label>
-      <p>提醒：管理员在确认用户购买VIP后才会在后台**手动**添加username与对应的激活码，这时用户输入对应激活码才可以成功激活，没有付款的用户信息是不会出现在后台数据库里的！</p>
+      <label>Description: You need to purchase a Premium account, or you cannot access the content. Please bypass the validation.</label>
+      <p>The administrator will manually add the username and corresponding activation code in the database only after being paid. The users that do not purchase the Premium version will not be stored in the database with activation codes.</p>
       <br />
       
-      <button type="button" class="btn btn-danger" data-toggle="popover" title="没思路？点这里看提示"  (click)="showTip()">没思路？点这里看提示</button>
+      <button type="button" class="btn btn-danger" data-toggle="popover" title="Hint"  (click)="showTip()">Hint</button>
       <div class="alert alert-info" style="margin-top: 10px;" *ngIf="tip">
-        <strong>提示：</strong> 着重关注后端js上激活VIP的方法！
+        <strong>Hint:</strong> How is the premium account activated?
       </div>
       <hr/>
-      <label>您不是会员，您可以选择输入会员码进行激活</label>
-      <label for="vipCode">解锁码</label>
-      <input type="text" [(ngModel)]="vipCode" name="vipCode" class="form-control" id="vipCode" aria-describedby="vipCode" placeholder="请输入会员解锁码">
+      <label>You cannot access the premium content, please enter your activation code.</label>
+      <label for="vipCode">Activation code</label>
+      <input type="text" [(ngModel)]="vipCode" name="vipCode" class="form-control" id="vipCode" aria-describedby="vipCode" placeholder="Please enter your activation code">
       <br />
-      <button type="submit" class="btn btn-success" (click)="unlock()" style="margin-right: 5px;">激活并查看</button>
+      <button type="submit" class="btn btn-success" (click)="unlock()" style="margin-right: 5px;">Activate and View</button>
       <br />
       <br />
       <div class="panel panel-primary">
-        <div class="panel-heading">VIP ACCESS CONTENT:(解锁可见)</div>
+        <div class="panel-heading">PREMIUM CONTENT:(View after upgrading)</div>
         <div class="panel-body" *ngFor="let s of status">{{s}}</div>
       </div>
     </div>

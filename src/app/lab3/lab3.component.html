@@ -1,19 +1,19 @@
 
   <form>
     <div class="form-group">
-        <p style="text-align:center"><label>关卡3:此Lab维护中</label></p>
+        <p style="text-align:center"><label>Lab 3: The website is under maintenance</label></p>
       <hr/>
       <br />
-      <label>关卡说明：因为某种原因，站长正在对这个板块进行更新，所以你暂时看不到内容。但是你现在很好奇，之前的内容是什么样的？</label>
+      <label>Description: For some reason, the admin is updating the website, and you cannot access the content. But you are curious about the previous content before the maintenance.</label>
       <br />
       
-      <button type="button" class="btn btn-danger" data-toggle="popover" title="没思路？点这里看提示"  (click)="showTip()">没思路？点这里看提示</button>
+      <button type="button" class="btn btn-danger" data-toggle="popover" title="Hint"  (click)="showTip()">Hint</button>
       <div class="alert alert-info" style="margin-top: 10px;" *ngIf="tip">
-        <strong>提示：</strong> 看看代码，应该如何绕过检测并得到你想要的内容呢（利用语言的一个小特性）？
+        <strong>Hint: </strong> Look into the code, how do you bypass the validation and get the content you want? Try to use a little feature of javascript.
       </div>
       <hr/>
       <div class="panel panel-primary">
-        <div class="panel-heading">公告：</div>
+        <div class="panel-heading">Announcement:</div>
         <div class="panel-body">{{content}}</div>
       </div>
     </div>

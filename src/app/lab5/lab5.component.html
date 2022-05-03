@@ -1,29 +1,29 @@
 
   <form>
     <div class="form-group">
-        <p style="text-align:center"><label>关卡5:加强版会员内容</label></p>
+        <p style="text-align:center"><label>Lab 5: The latest Premium Content</label></p>
       <hr/>
       <br />
-      <label>关卡说明：在Lab2中，站长设置的会员内容居然被破解了，站长非常生气，重新修补了网站漏洞，相信这次不会被黑客攻击了吧！但真的是这样吗？请你找出隐藏的会员内容</label>
-      <p><strong>注意：此关完成后可能需要重新启动网站程序，否则其他关卡可能会受影响！</strong></p>
-      <p>提醒：管理员在确认用户购买VIP后才会在后台**手动**添加username与对应的激活码，这时用户输入对应激活码才可以成功激活，没有付款的用户信息是不会出现在后台数据库里的！</p>
+      <label>Description: In Lab 2, the premium content was hacked. The administrator was angry, he fixed the bug and believe that there would be no more attacks. Is that true? Please find out the hidden vulnerability.</label>
+      <p><strong>Remind: Please restart the whole application after you finish this level, otherwise other labs will be affected.</strong></p>
+      <p>The administrator will manually add the username and corresponding activation code in the database only after being paid. The users that do not purchase the Premium version will not be stored in the database with activation codes.</p>
       <br />
       
-      <button type="button" class="btn btn-danger" data-toggle="popover" title="没思路？点这里看提示"  (click)="showTip()">没思路？点这里看提示</button>
+      <button type="button" class="btn btn-danger" data-toggle="popover" title="Hint"  (click)="showTip()">Hint</button>
       <div class="alert alert-info" style="margin-top: 10px;" *ngIf="tip">
-        <strong>提示：</strong> 着重关注后端js上对应检测VIP的方法！
+        <strong>Hint: </strong> Please look into where the activation code was checked!
       </div>
       <hr/>
-      <label>您不是会员，您可以选择输入会员码进行激活</label>
-      <label for="vipCode">解锁码</label>
-      <input type="text" [(ngModel)]="vipCode" name="vipCode" class="form-control" id="vipCode" aria-describedby="vipCode" placeholder="请输入会员解锁码">
+      <label>You haven't activate the premium version, You can enter your activation code to activate it</label>
+      <label for="vipCode">Activation code</label>
+      <input type="text" [(ngModel)]="vipCode" name="vipCode" class="form-control" id="vipCode" aria-describedby="vipCode" placeholder="Please enter your activation code">
       <br />
-      <button type="submit" class="btn btn-success" (click)="unlock()" style="margin-right: 5px;">激活</button>
-      <button type="submit" class="btn btn-success" (click)="viewSecret()" style="margin-right: 5px;">我已激活，点击此处观看VIP会员内容</button>
+      <button type="submit" class="btn btn-success" (click)="unlock()" style="margin-right: 5px;">Activate</button>
+      <button type="submit" class="btn btn-success" (click)="viewSecret()" style="margin-right: 5px;">I have activated Premium, click here to view the premium content</button>
       <br />
       <br />
       <div class="panel panel-primary">
-        <div class="panel-heading">VIP ACCESS CONTENT:(解锁可见)</div>
+        <div class="panel-heading">VIP ACCESS CONTENT:(view it after unlock)</div>
         <div class="panel-body" *ngFor="let s of status">{{s}}</div>
       </div>
     </div>

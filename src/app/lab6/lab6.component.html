@@ -1,14 +1,14 @@
  <form>
     <div class="form-group">
-        <p style="text-align:center"><label>关卡6:加入网安小组</label></p>
+        <p style="text-align:center"><label>Lab 6:Joining Cybersecurity Team</label></p>
       <hr/>
       <br />
-      <label>关卡说明：愤怒的老板在其网站被数次攻击后，终于组织了个Catch the Flag活动，来选出一些网络安全精英，帮助站长找出之前干坏事的都是谁。你吓得抖了抖，赶紧报名，打算拿到这个名额。。</label>
+      <label>Description: The administrator is so annoyed that he organized the activity of Catch the Flag, to choose cybersecurity specialists and help him to find out who attacked the system. You have to get this place so that you can hide..</label>
       <br />
       
-      <button type="button" class="btn btn-danger" data-toggle="popover" title="没思路？点这里看提示"  (click)="showTip()">没思路？点这里看提示</button>
+      <button type="button" class="btn btn-danger" data-toggle="popover" title="Hint"  (click)="showTip()">Hint</button>
       <div class="alert alert-info" style="margin-top: 10px;" *ngIf="tip">
-        <strong>提示：</strong> 利用nodejs特性绕过各种限制！
+        <strong>Hint: </strong> Use a special feature of Node.js
       </div>
       <br />
       <pre class="language-js">
