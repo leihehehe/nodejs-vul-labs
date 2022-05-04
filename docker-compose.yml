@@ -2,7 +2,7 @@ version: "3"
 services:
        nodejs-vul-labs:
            container_name: nodejs-vul-labs
-           image: leihehe/nodejs-vul-labs:nodelabs
+           image: leihehe/nodejs-vul-labs:v2.0
            ports:
              - "8888:8888"
        mongo:
