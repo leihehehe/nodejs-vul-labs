@@ -6,7 +6,7 @@
 
 ## Screenshots
 
-**There are currently have 6 labs, previews are shown below**
+**There are currently 6 labs, previews are shown below**
 
  **Lab1**
 
@@ -74,7 +74,7 @@ Access the labs: http://localhost:8888
 
 ## Initialize the database
 
-If you are running this application for the first time, please click the button below to initialize the database.
+If you are running this application for the first time, please first initialize the database.
 
 ![screenshot2](./image/database.png)
 
